@@ -1,0 +1,7 @@
+﻿Codigo,ISBN,Nome,Tipo,Preco,Autor
+1,978-85-94120-00-7,Spring Boot,Ebook,29.90,Fernando Boaglio
+2,978-85-94120-00-7,Spring Boot,Impresso,69.90,Fernando Boaglio
+3,978-85-94188-12-0,Proteja suas aplicacoes com o Spring Security OAuth2,Ebook,29.90,Adolfo Eloy
+4,978-85-94188-12-0,Proteja suas aplicacoes com o Spring Security OAuth2,Impresso,69.90,Adolfo Eloy
+5,978-85-66250-34-3,Construa aplicacoes Ruby com testes e especificacoes,Ebook,29.90,Hugo Barauna
+6,978-85-66250-34-3,Construa aplicacoes Ruby com testes e especificacoes,Impresso,69.90,Hugo Barauna

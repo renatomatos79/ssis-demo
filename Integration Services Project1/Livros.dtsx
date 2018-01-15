@@ -1,0 +1,1030 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/14/2018 12:21:31 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RENATO-PC"
+  DTS:CreatorName="renato-PC\renato"
+  DTS:DTSID="{4C1B9B00-922C-414F-9D29-2B8D68F8A129}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Livros"
+  DTS:PackageType="5"
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{085D3B22-6484-4C7A-B371-2AF5B25F3D75}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CSV]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="CSV File"
+      DTS:DTSID="{EAAD114F-CD14-4179-AFA1-29F2951AADD0}"
+      DTS:ObjectName="CSV">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::CSV]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Projetos\SSIS\Extra\livros.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Codigo"
+              DTS:DTSID="{80D0D596-0D03-424C-A8AA-CEBFDB816C42}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="17"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISBN"
+              DTS:DTSID="{629C64B1-AC01-4179-961F-17CADCF54C72}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="52"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Nome"
+              DTS:DTSID="{0F1D098F-8853-453A-82FD-CAA99063F9FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Tipo"
+              DTS:DTSID="{E46AFC79-F693-4267-956C-40D8F67E3A64}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Preco"
+              DTS:DTSID="{3E7DB89A-A800-4C4F-81B0-7965470B4FD6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="16"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Autor"
+              DTS:DTSID="{AFD7B28D-ED25-4BBC-BD6A-EC94E0EEDB1E}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[RENATO-PC\SQLEXPRESS.SSIS-Demo]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{466BF26C-2C10-456D-8899-C00C4CA47742}"
+      DTS:ObjectName="RENATO-PC\SQLEXPRESS.SSIS-Demo">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=RENATO-PC\SQLEXPRESS;Initial Catalog=SSIS-Demo;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7D446E90-3FC0-47A4-81DA-9CE720CC3426}"
+      DTS:ObjectName="CSV"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Projetos\SSIS\Extra\livros.csv</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{6FB49152-E387-4166-921C-8E9325D8949E}"
+      DTS:ObjectName="IdImportacao"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">cc00730c-075d-48e3-8193-e75d5ae9dd47</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{74DBE95C-E911-4C51-B063-2747CDE14403}"
+      DTS:ObjectName="Usuario"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Renato</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8605AD7E-95F7-425A-89F1-A2129D2B8FD7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Qtd">
+      <DTS:VariableValue
+        DTS:DataType="2">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Copia os Livros"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A3821946-2A37-4207-92AC-0A0321A699DF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copia os Livros"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{466BF26C-2C10-456D-8899-C00C4CA47742}"
+          SQLTask:SqlStatementSource="exec dbo.usp_copia_livros @IdImportacao = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::IdImportacao"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="40" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Importar Livros"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6343713D-46DD-4E2D-AC0D-1AC54AFB17C6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Importar Livros"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Importar Livros\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Importar Livros\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Importar Livros\Data Conversion.Inputs[Data Conversion Input].Columns[ID_IMPORTACAO]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="ID_IMPORTACAO"
+                      lineageId="Package\Importar Livros\Derived Column.Outputs[Derived Column Output].Columns[ID_IMPORTACAO]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Importar Livros\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Importar Livros\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importar Livros\Data Conversion.Outputs[Data Conversion Output].Columns[ID_IMPORTACAO_CONV]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Importar Livros\Data Conversion.Outputs[Data Conversion Output].Columns[ID_IMPORTACAO_CONV]"
+                      name="ID_IMPORTACAO_CONV"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Importar Livros\Derived Column.Outputs[Derived Column Output].Columns[ID_IMPORTACAO]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Importar Livros\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Importar Livros\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importar Livros\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Importar Livros\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Importar Livros\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Importar Livros\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Importar Livros\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Importar Livros\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Importar Livros\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Importar Livros\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importar Livros\Derived Column.Outputs[Derived Column Output].Columns[ID_IMPORTACAO]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Importar Livros\Derived Column.Outputs[Derived Column Output].Columns[ID_IMPORTACAO]"
+                      name="ID_IMPORTACAO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,40,65001)@[$Package::IdImportacao]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,40,65001)@[$Package::IdImportacao]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Importar Livros\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Importar Livros\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importar Livros\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Importar Livros\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Importar Livros\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Importar Livros\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Importar Livros\Livros CVS"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1046"
+              name="Livros CVS"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Importar Livros\Livros CVS.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CSV]"
+                  connectionManagerRefId="Package.ConnectionManagers[CSV]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Codigo]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].ExternalColumns[Codigo]"
+                      length="20"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Codigo]"
+                      name="Codigo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[ISBN]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].ExternalColumns[ISBN]"
+                      length="17"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[ISBN]"
+                      name="ISBN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Nome]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].ExternalColumns[Nome]"
+                      length="52"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Nome]"
+                      name="Nome"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Tipo]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].ExternalColumns[Tipo]"
+                      length="8"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Tipo]"
+                      name="Tipo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Preco]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].ExternalColumns[Preco]"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Preco]"
+                      name="Preco"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Autor]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].ExternalColumns[Autor]"
+                      length="16"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Autor]"
+                      name="Autor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].ExternalColumns[Codigo]"
+                      codePage="65001"
+                      dataType="str"
+                      length="20"
+                      name="Codigo" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].ExternalColumns[ISBN]"
+                      codePage="65001"
+                      dataType="str"
+                      length="17"
+                      name="ISBN" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].ExternalColumns[Nome]"
+                      codePage="65001"
+                      dataType="str"
+                      length="52"
+                      name="Nome" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].ExternalColumns[Tipo]"
+                      codePage="65001"
+                      dataType="str"
+                      length="8"
+                      name="Tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].ExternalColumns[Preco]"
+                      dataType="r4"
+                      name="Preco" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].ExternalColumns[Autor]"
+                      codePage="65001"
+                      dataType="str"
+                      length="16"
+                      name="Autor" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Importar Livros\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[LivrosStg]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">65001</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Importar Livros\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[RENATO-PC\SQLEXPRESS.SSIS-Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[RENATO-PC\SQLEXPRESS.SSIS-Demo]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_IMPORTACAO_CONV]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="ID_IMPORTACAO_CONV"
+                      externalMetadataColumnId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdImportacao]"
+                      lineageId="Package\Importar Livros\Data Conversion.Outputs[Data Conversion Output].Columns[ID_IMPORTACAO_CONV]" />
+                    <inputColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Nome]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="52"
+                      cachedName="Nome"
+                      externalMetadataColumnId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nome]"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Nome]" />
+                    <inputColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ISBN]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="ISBN"
+                      externalMetadataColumnId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ISBN]"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[ISBN]" />
+                    <inputColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Tipo]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="Tipo"
+                      externalMetadataColumnId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Tipo]"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Tipo]" />
+                    <inputColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Autor]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="Autor"
+                      externalMetadataColumnId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Autor]"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Autor]" />
+                    <inputColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Codigo]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Codigo"
+                      externalMetadataColumnId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdLivro]"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Codigo]" />
+                    <inputColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Preco]"
+                      cachedDataType="r4"
+                      cachedName="Preco"
+                      externalMetadataColumnId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Preco]"
+                      lineageId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output].Columns[Preco]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="guid"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdImportacao]"
+                      codePage="65001"
+                      dataType="str"
+                      length="40"
+                      name="IdImportacao" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nome]"
+                      codePage="65001"
+                      dataType="str"
+                      length="255"
+                      name="Nome" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ISBN]"
+                      codePage="65001"
+                      dataType="str"
+                      length="40"
+                      name="ISBN" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Tipo]"
+                      codePage="65001"
+                      dataType="str"
+                      length="20"
+                      name="Tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Preco]"
+                      dataType="numeric"
+                      name="Preco"
+                      precision="15"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Autor]"
+                      codePage="65001"
+                      dataType="str"
+                      length="60"
+                      name="Autor" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DtCadastro]"
+                      dataType="dbTimeStamp2"
+                      name="DtCadastro"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdLivro]"
+                      codePage="65001"
+                      dataType="str"
+                      length="20"
+                      name="IdLivro" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Importar Livros\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Importar Livros\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Importar Livros\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Importar Livros\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Importar Livros.Paths[Data Conversion Output]"
+              endId="Package\Importar Livros\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Importar Livros\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Importar Livros.Paths[Derived Column Output]"
+              endId="Package\Importar Livros\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Importar Livros\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Importar Livros.Paths[Flat File Source Output]"
+              endId="Package\Importar Livros\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Importar Livros\Livros CVS.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Registra Importação"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5B9E9EAD-D012-4E47-A256-39CBF145175A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Registra Importação"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{466BF26C-2C10-456D-8899-C00C4CA47742}"
+          SQLTask:SqlStatementSource="Insert into Importacoes&#xA;(IdImportacao, Arquivo, Usuario, DtCadastro)&#xA;values&#xA;(?, ?, ?, GETDATE())&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::IdImportacao"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="40" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Package::CSV"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="255" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="$Package::Usuario"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="20" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F1CA9E11-5801-4EB7-A908-5B38A4C6E430}"
+      DTS:From="Package\Registra Importação"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Importar Livros" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{581CCB06-04BA-464E-88E7-7DCB68830755}"
+      DTS:From="Package\Importar Livros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Copia os Livros" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Copia os Livros"
+          TopLeft="179.285714285714,308.571428571429" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Importar Livros"
+          TopLeft="179.571428571429,191.428571428571" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Registra Importação"
+          TopLeft="160.714285714286,54.7142857142857" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="252.642857142857,96.7142857142857">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,94.7142857142857"
+              Start="0,0"
+              End="0,87.2142857142857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,87.2142857142857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="255.678571428571,233.428571428571">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75.1428571428572"
+              Start="0,0"
+              End="0,67.6428571428572">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.6428571428572" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Importar Livros">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Importar Livros\Livros CVS"
+          TopLeft="125,98" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Importar Livros\OLE DB Destination"
+          TopLeft="685,255" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Importar Livros\Derived Column"
+          TopLeft="397,104" />
+        <EdgeLayout
+          Id="Package\Importar Livros.Paths[Flat File Source Output]"
+          TopLeft="256,122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="141,0"
+              Start="0,0"
+              End="133.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="133.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Importar Livros\Data Conversion"
+          TopLeft="689,107" />
+        <EdgeLayout
+          Id="Package\Importar Livros.Paths[Derived Column Output]"
+          TopLeft="553,126.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="136,0"
+              Start="0,0"
+              End="128.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="128.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Importar Livros.Paths[Data Conversion Output]"
+          TopLeft="769.75,149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,106"
+              Start="0,0"
+              End="0,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Importar Livros\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
